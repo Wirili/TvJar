@@ -47,11 +47,11 @@ jobs:
       run: ./build.bat ec
     
     - name: list
-      run: dir /b /s
+      run: dir
     
     - name: move files 2
       working-directory: ../
-      run: dir /b /s
+      run: dir
 
     - name: move files 2
       working-directory: ../
