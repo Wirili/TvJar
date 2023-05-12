@@ -48,11 +48,10 @@ jobs:
 
     - name: move files 2
       working-directory: ./
-      run:  move ./project/custom_spider.jar ./
+      run:  move ./project/jar/custom_spider.jar ./
       
     - name: move files 3
-      working-directory: ./
-      run:  move ./project/custom_spider.jar.md5 ./
+      run:  move ./project/jar/custom_spider.jar.md5 ./
       
     - name: Update spider jar
       uses: EndBug/add-and-commit@v7
