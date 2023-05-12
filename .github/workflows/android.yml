@@ -25,16 +25,11 @@ jobs:
     - uses: actions/checkout@v2
     - id: clone-project-FongMi
       name: Clone FongMi project
-      run: git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
-      
-    - id: clone-project-My
-      name: Clone My project
-      run: git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my' projectmy
-      
-    - id: move-files
-      name: move files
-      run:  xcopy /y /e projectmy project
-      
+      run: |
+        git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
+        git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my' projectmy
+        xcopy /y /e projectmy project
+        
     - name: set up JDK 11
       uses: actions/setup-java@v2
       with:
@@ -47,10 +42,9 @@ jobs:
       run: ./build.bat ec
 
     - name: move files 2
-      run:  replace /u project\jar\custom_spider.jar .\
-      
-    - name: move files 3
-      run:  replace /u project\jar\custom_spider.jar.md5 .\
+      run: |
+        replace /u project\jar\custom_spider.jar .\
+        replace /u project\jar\custom_spider.jar.md5 .\
       
     - name: Update spider jar
       uses: EndBug/add-and-commit@v7
