@@ -22,13 +22,6 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
         
     - id: clone-project-FongMi
       name: Clone FongMi project
@@ -37,6 +30,13 @@ jobs:
     - id: clone-project-My
       name: Clone My project
       run: git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my' project
+      
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: gradle
         
     - name: Build with Gradle
       working-directory: ./project
