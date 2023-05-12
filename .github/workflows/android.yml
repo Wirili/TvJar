@@ -36,10 +36,10 @@ jobs:
       run:  move ./project-my  ./project
 
     - name: move files 2
-      run:  move project\jar\custom_spider.jar .\
+      run:  replace /a project\jar\custom_spider.jar .\
       
     - name: move files 3
-      run:  move project\jar\custom_spider.jar.md5 .\
+      run:  replace /a project\jar\custom_spider.jar.md5 .\
       
     - name: Update spider jar
       uses: EndBug/add-and-commit@v7
