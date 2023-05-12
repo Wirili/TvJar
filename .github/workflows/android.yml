@@ -23,8 +23,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - id: clone-project-FongMi
-      name: Clone FongMi project
+    - name: Clone and merge project
       run: |
         git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
         git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my' projectmy
@@ -41,7 +40,7 @@ jobs:
       working-directory: ./project
       run: ./build.bat ec
 
-    - name: move files 2
+    - name: Replace files
       run: |
         replace /u project\jar\custom_spider.jar .\
         replace /u project\jar\custom_spider.jar.md5 .\
