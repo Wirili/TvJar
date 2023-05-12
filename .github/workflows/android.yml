@@ -22,7 +22,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
-        
+    
+    - uses: actions/checkout@v2 pro
+    
     - id: clone-project-FongMi
       name: Clone FongMi project
       run: git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
@@ -46,6 +48,17 @@ jobs:
       working-directory: ./project
       run: ./build.bat ec
 
+    - name: move files 2
+      working-directory: ./
+      run:  move ./project/custom_spider.jar ./pro
+      
+    - name: move files 3
+      working-directory: ./
+      run:  move ./project/custom_spider.jar.md5 ./pro
+      
+    - name: move files 3
+      working-directory: ./
+      
     - name: Update spider jar
       uses: EndBug/add-and-commit@v7
       with:
