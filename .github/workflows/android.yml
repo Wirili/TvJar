@@ -34,12 +34,23 @@ jobs:
     - id: move-files
       name: move files
       run:  move ./project-my  ./project
+      
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: gradle
+        
+    - name: Build with Gradle
+      working-directory: ./project
+      run: ./build.bat ec
 
     - name: move files 2
-      run:  replace /a project\jar\custom_spider.jar .\
+      run:  replace /u project\jar\custom_spider.jar .\
       
     - name: move files 3
-      run:  replace /a project\jar\custom_spider.jar.md5 .\
+      run:  replace /u project\jar\custom_spider.jar.md5 .\
       
     - name: Update spider jar
       uses: EndBug/add-and-commit@v7
