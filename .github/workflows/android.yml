@@ -33,7 +33,7 @@ jobs:
       
     - id: move-files
       name: move files
-      run:  replace /s projectmy project
+      run:  xcopy /y /e projectmy project
       
     - name: set up JDK 11
       uses: actions/setup-java@v2
