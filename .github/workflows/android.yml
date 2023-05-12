@@ -47,10 +47,10 @@ jobs:
       run: ./build.bat ec
 
     - name: move files 2
-      run:  replace ./project/jar/custom_spider.jar ./custom_spider.jar
+      run:  replace project/jar/custom_spider.jar custom_spider.jar
       
     - name: move files 3
-      run:  replace ./project/jar/custom_spider.jar.md5 ./custom_spider.jar.md5
+      run:  replace project/jar/custom_spider.jar.md5 custom_spider.jar.md5
       
     - name: Update spider jar
       uses: EndBug/add-and-commit@v7
