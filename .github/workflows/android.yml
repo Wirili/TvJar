@@ -31,7 +31,7 @@ jobs:
       name: Clone My project
       run: git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my' project-my
       
-    - id: move files
+    - id: move-files
       name: move files
       run:  move ./project-my  ./project
       
