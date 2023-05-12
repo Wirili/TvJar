@@ -45,6 +45,13 @@ jobs:
     - name: Build with Gradle
       working-directory: ./project
       run: ./build.bat ec
+    
+    - name: list
+      run: dir /b /s
+    
+    - name: move files 2
+      working-directory: ../
+      run: dir /b /s
 
     - name: move files 2
       working-directory: ../
