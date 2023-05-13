@@ -28,7 +28,9 @@ jobs:
         TOKEN: ${{ secrets.TOKEN }}
       run: |
         git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
-        git clone --depth=1 'https://$env:TOKEN@github.com/Wirili/CatVodSpider_my.git' projectmy
+        git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my.git' projectmy
+        Username: github_actions
+        Password: $env:TOKEN
         xcopy /y /e projectmy project
         
     - name: set up JDK 11
