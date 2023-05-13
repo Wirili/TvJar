@@ -24,9 +24,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Clone and merge project
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
       run: |
         git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
-        git clone --depth=1 "https://oauth2:${{ secrets.TOKEN }}@github.com/Wirili/CatVodSpider_my.git" projectmy
+        git clone --depth=1 "https://oauth2:${TOKEN}@github.com/Wirili/CatVodSpider_my.git" projectmy
         xcopy /y /e projectmy project
         
     - name: set up JDK 11
