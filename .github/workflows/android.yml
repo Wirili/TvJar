@@ -25,11 +25,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: Clone and merge project
       env:
+        USER: ${{ secrets.USER }}
         TOKEN: ${{ secrets.TOKEN }}
       run: |
         git clone --depth=1 'https://github.com/FongMi/CatVodSpider' project
         git clone --depth=1 'https://github.com/Wirili/CatVodSpider_my.git' projectmy
-        github_actions
+        $env:USER
         $env:TOKEN
         xcopy /y /e projectmy project
         
