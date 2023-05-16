@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
       
     steps:
-      - uses: ImYrS/aliyun-auto-signin@main
+      - uses: Wirili/aliyun-auto-signin@main
         with:
           REFRESH_TOKENS: ${{ secrets.ALITOKEN }}
           GP_TOKEN: ${{ secrets.TOKEN}}
