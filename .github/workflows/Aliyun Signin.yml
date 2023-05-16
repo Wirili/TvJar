@@ -10,6 +10,13 @@ jobs:
     name: Aliyun Signin
     runs-on: ubuntu-latest
     steps:
+      - name: Get Random
+        run: echo "PROCEED=$((RANDOM%60))" >> $GITHUB_ENV
+        shell: bash
+        
+      - name: delay
+        run: sleep env.PROCEED
+        
       - uses: ImYrS/aliyun-auto-signin@main
         with:
           REFRESH_TOKENS: ${{ secrets.ALITOKEN }}
