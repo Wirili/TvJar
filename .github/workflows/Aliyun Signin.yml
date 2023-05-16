@@ -9,13 +9,14 @@ jobs:
   signin:
     name: Aliyun Signin
     runs-on: ubuntu-latest
+    env:
+      random: ${{RANDOM%60}}
+      
     steps:
-      - name: Get Random
-        run: echo "PROCEED=$((RANDOM%60))" >> $GITHUB_ENV
-        shell: bash
-        
       - name: delay
-        run: sleep env.PROCEED
+        run: |
+          echo "random:${{env.random}}"
+          sleep env.random
         
       - uses: ImYrS/aliyun-auto-signin@main
         with:
