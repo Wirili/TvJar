@@ -10,9 +10,15 @@ jobs:
     name: Aliyun Signin
     runs-on: ubuntu-latest
     env:
-      random: ${{RANDOM%60}}
+      random: 0
       
     steps:
+      - name: Get Random
+        run: |
+          echo $((RANDOM%2)) >> $env.random
+          echo $env.random
+        shell: bash
+        
       - name: delay
         run: |
           echo "random:${{env.random}}"
