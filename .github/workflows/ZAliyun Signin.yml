@@ -1,4 +1,4 @@
-name: Aliyun Signin
+name: ZAliyun Signin
 
 on:
   schedule:
@@ -9,21 +9,14 @@ jobs:
   signin:
     name: Aliyun Signin
     runs-on: ubuntu-latest
-    env:
-      random: 0
       
     steps:
       - name: Get Random
         run: |
-          echo $((RANDOM%2)) >> $env.random
-          echo $env.random
-        shell: bash
-        
-      - name: delay
-        run: |
-          echo "random:${{env.random}}"
-          sleep env.random
-        
+          rad = "$(echo "RANDOM%10")"
+          echo $rad
+          sleep $rad
+          
       - uses: ImYrS/aliyun-auto-signin@main
         with:
           REFRESH_TOKENS: ${{ secrets.ALITOKEN }}
